@@ -23,7 +23,7 @@ df = df.astype({'Price': 'int', 'Bedroom2': 'int',
 df = df.drop_duplicates()
 df = df.reset_index(drop=True)
 
-df
+# df
 
 import datetime
 def to_year(date_str):
@@ -38,41 +38,42 @@ date_dummies = pd.get_dummies(df[['Date']])
 df = df.drop(['Suburb', 'Type', 'Regionname', 'Date'],axis=1).join(suburb_dummies)
 df = df.join(regionname_dummies)
 df = df.join(date_dummies)
+df
 
-from sklearn import linear_model
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split, cross_val_predict
-from sklearn.metrics import mean_squared_error, r2_score
+# from sklearn import linear_model
+# from sklearn.linear_model import LinearRegression
+# from sklearn.model_selection import train_test_split, cross_val_predict
+# from sklearn.metrics import mean_squared_error, r2_score
 
-train, test = train_test_split(df, test_size = 0.2, random_state=512)
+# train, test = train_test_split(df, test_size = 0.2, random_state=512)
 
-X_train = train.loc[:, df.columns != 'Price']
-y_train = train.Price
+# X_train = train.loc[:, df.columns != 'Price']
+# y_train = train.Price
 
-X_test = test.loc[:, df.columns != 'Price']
-y_test = test.Price
+# X_test = test.loc[:, df.columns != 'Price']
+# y_test = test.Price
 
-regression = LinearRegression()
-regression.fit(X_train.values, y_train.values)
+# regression = LinearRegression()
+# regression.fit(X_train.values, y_train.values)
 
-# predictions = lm.predict(X_test)
+# # predictions = lm.predict(X_test)
 
-predict_train = regression.predict(X_train.values)
-mean_squared_error(y_train, predict_train)
-r2_train = r2_score(y_train, predict_train)
-print(r2_train)
+# predict_train = regression.predict(X_train.values)
+# mean_squared_error(y_train, predict_train)
+# r2_train = r2_score(y_train, predict_train)
+# print(r2_train)
 
-predict_test = regression.predict(X_test.values)
-mean_squared_error(y_test, predict_test)
-r2_test = r2_score(y_test, predict_test)
-print(r2_test)
+# predict_test = regression.predict(X_test.values)
+# mean_squared_error(y_test, predict_test)
+# r2_test = r2_score(y_test, predict_test)
+# print(r2_test)
 
-# Export model
-pickle.dump(regression, open('model.pkl','wb'))
-# # Plot result
-# fig, ax = plt.subplots()
-# ax.scatter(y_test, predict_test)
-# ax.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'k--', lw=4)
-# ax.set_xlabel('Measured')
-# ax.set_ylabel('Predicted')
-# plt.show()
+# # Export model
+# pickle.dump(regression, open('model.pkl','wb'))
+# # # Plot result
+# # fig, ax = plt.subplots()
+# # ax.scatter(y_test, predict_test)
+# # ax.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'k--', lw=4)
+# # ax.set_xlabel('Measured')
+# # ax.set_ylabel('Predicted')
+# # plt.show()
