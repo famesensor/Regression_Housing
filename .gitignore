@@ -1,9 +1,8 @@
-MELBOURNE_HOUSE_PRICES_LESS.csv
 
-Melbourne_housing_FULL.csv
+*.csv
 
-.xlsx
+*.xlsx
 
-.ipynb_checkpoints
+*.ipynb_checkpoints
 
-housing.ipynb
+*.ipynb
