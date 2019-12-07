@@ -8,36 +8,69 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/styleAI.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h2>Predict something</h2>
-        <form action="/predict" method="POST">
-            <div class="input-group mb-3 input-group">
+    </div>
+    <div class="container">
+        
+        <form action="/predict" method="POST" >
+            <!-- <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Room</span>
                 </div>
                 <input type="text" class="form-control" name="room">
+            </div> -->
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Room</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="room" placeholder="Room">
+                </div>
             </div>
-            <div class="input-group mb-3 input-group">
+
+            <!-- <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Bedroom</span>
                 </div>
                 <input type="text" class="form-control" name="bedroom">
+            </div> -->
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Bedroom</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="bedroom" placeholder="Bedroom">
+                </div>
             </div>
-            <div class="input-group mb-3 input-group">
+
+            <!-- <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Bathroom</span>
                 </div>
                 <input type="text" class="form-control" name="bathroom">
+            </div> -->
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Bathroom</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="bathroom" placeholder="Bathroom">
+                </div>
             </div>
-            <div class="input-group mb-3 input-group">
+
+            <!-- <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">carspots</span>
                 </div>
                 <input type="text" class="form-control" name="carspots">
+            </div> -->
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Carspots</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="carspots" placeholder="Carspots">
+                </div>
             </div>
-            <div class="input-group mb-3 input-group">
+
+            <!-- <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Type of place</span>
                 </div>
@@ -47,8 +80,21 @@
                     <option value="townhouse">Townhouse</option>
                     <option value="unit">Unit</option>
                 </select>
+            </div> -->
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Type of place</label>
+                <div class="col-sm-10">
+                  <select name="type" class="custom-select">
+                    <option selected>Select Type of place</option>
+                    <option value="house">House</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="unit">Unit</option>
+                </select>
+                </div>
             </div>
-            <div class="input-group mb-3 input-group">
+
+<!--             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Region</span>
                 </div>
@@ -62,8 +108,25 @@
                     <option value="western-victoria">Western Victoria</option>
                     <option value="eastern-victoria">Eastern Victoria</option>
                 </select>
+            </div> -->
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Region</label>
+                <div class="col-sm-10">
+                <select name="region" class="custom-select">
+                    <option selected>Select Region</option>
+                    <option value="northern">Northern Metropolitan</option>
+                    <option value="western">Western Metropolitan</option>
+                    <option value="southern">Southern Metropolitan</option>
+                    <option value="eastern">Eastern Metropolitan</option>
+                    <option value="south-eastern">South-Eastern Metropolitan</option>
+                    <option value="western-victoria">Western Victoria</option>
+                    <option value="eastern-victoria">Eastern Victoria</option>
+                </select>
+                </div>
             </div>
-            <div class="input-group mb-3 input-group">
+
+
+            <!-- <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Year</span>
                 </div>
@@ -73,14 +136,29 @@
                     <option value="2017">2017</option>
                     <option value="2018">2018</option>
                 </select>
+            </div> -->
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Year</label>
+                <div class="col-sm-10">
+                <select name="year" class="custom-select">
+                    <option selected>Select Years</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                </select>
+                </div>
             </div>
-            <div class="mt-3">
+
+            <!-- <div class="mt-3">
                 <button type="submit" class="btn btn-primary">Submit</button>
+            </div> -->
+        
+            <div class="container mt-3 btn btncenter">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" value="Reset"  class="btn btn-danger">Clear</button>
             </div>
         </form>
-        <div class="mt-3">
-            <button type="clear" class="btn btn-danger">Clear</button>
-        </div>
+               
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

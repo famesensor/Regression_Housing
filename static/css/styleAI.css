@@ -1,0 +1,27 @@
+
+body{
+	background-color: #e0e0d1;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.form-group label{
+	text-align: right;
+
+}@media only screen and (max-width: 768px) {
+        .form-group label {
+          text-align: left; } }
+
+div h2{
+	font-family: 'Roboto Mono', monospace;
+	padding: 1%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 3%;
+}
+
+.btncenter{
+	margin-left: 2%;
+	margin-top: 1%;
+	margin-bottom: 5%;
+}
