@@ -26,7 +26,7 @@ def predict() :
     data.append(request.form['type'])
     data.append(request.form['region'])
     predict_p = predict_price(data, model)
-    data.append(predict_p)
+    data.append(predict_p[0])
     data_enter = Data(detail = data)
     if request.method == "POST":
         try : 
