@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="app/static/css/styleAI.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styleAI.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,25 +19,30 @@
     <div class="container">
         
         <form class="needs-validation" action="/predict" method="POST" novalidate>
-            
+        <!-- ROW1 -->
             <div class="form row">
-                
+                <!-- ห้อง -->
                 <div class="col-md-4 mb-3">
                     <label for="colFormLabel">Room</label>
                     <input type="number" class="form-control" name="room" placeholder="จำนวนห้องทั้งหมด" required>
                     <div class="invalid-feedback">กรุณาใส่จำนวนห้อง</div>
                 </div> 
-                
+                <!-- Dateปีที่ขาย -->
                 <div class="col-md-4 mb-3">
-                    <label for="colFormLabel">Bedroom</label>
-                    <input type="number" class="form-control" name="bedroom" placeholder="จำนวนห้องนอน" required>
-                    <div class="invalid-feedback">กรุณาใส่จำนวนห้องนอน</div>
+                    <label for="colFormLabel">Date</label>
+                    <select name="date" class="custom-select" required>
+                        <option value="">ปีที่ขาย</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                    </select>
+                    <div class="invalid-feedback">กรุณาเลือกปีที่ขาย</div>
                 </div>
-                
+                <!-- ระยะห่างกับศูนย์การค้า -->
                 <div class="col-md-4 mb-3">
-                <label for="colFormLabel" class="">Bathroom</label>
-                <input type="number" class="form-control" name="bathroom" placeholder="จำนวนห้องน้ำ" required>
-                <div class="invalid-feedback">กรุณาใส่จำนวนห้องน้ำ</div>
+                    <label for="colFormLabel">Distance</label>
+                    <input type="number" step="any" class="form-control" name="distance" placeholder="ระยะห่างจากศูนย์กลางการค้า(km)" required>
+                    <div class="invalid-feedback">กรุณาใส่ระยะทาง</div>
                 </div>
             </div>
 
@@ -113,32 +118,26 @@
                 </div>
             </div> -->
 
+            <!-- ROW2 -->
             <div class="form row">
-                <!-- Dateปีที่ขาย -->
+                <!-- ห้องนอน -->
                 <div class="col-md-4 mb-3">
-                    <label for="colFormLabel">Date</label>
-                    <select name="date" class="custom-select" required>
-                        <option value="">ปีที่ขาย</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                    </select>
-                    <div class="invalid-feedback">กรุณาเลือกปีที่ขาย</div>
+                    <label for="colFormLabel">Bedroom</label>
+                    <input type="number" class="form-control" name="bedroom" placeholder="จำนวนห้องนอน" required>
+                    <div class="invalid-feedback">กรุณาใส่จำนวนห้องนอน</div>
                 </div>
-                <!-- อายุปีที่ขาย -->
+                <!-- ห้องน้ำ -->
                 <div class="col-md-4 mb-3">
-                    <label for="colFormLabel">Age</label>
-                      <input type="number" class="form-control" name="age" placeholder="อายุบ้าน(ปี)" required>
-                    <div class="invalid-feedback">กรุณาใส่อายุบ้าน</div>
+                <label for="colFormLabel" class="">Bathroom</label>
+                <input type="number" class="form-control" name="bathroom" placeholder="จำนวนห้องน้ำ" required>
+                <div class="invalid-feedback">กรุณาใส่จำนวนห้องน้ำ</div>
                 </div>
-                <!-- ระยะห่างกับศูนย์การค้า -->
+                <!-- ParkingLots -->
                 <div class="col-md-4 mb-3">
-                    <label for="colFormLabel">Distance</label>
-                    <input type="number" step="any" class="form-control" name="distance" placeholder="ระยะห่างจากศูนย์กลางการค้า(km)" required>
-                    <div class="invalid-feedback">กรุณาใส่ระยะทาง</div>
+                <label for="colFormLabel">Parking Lots</label>
+                  <input type="number" class="form-control" name="parkinglots" placeholder="จำนวนจุดที่จอดรถ" required>
+                  <div class="invalid-feedback">กรุณาใส่จำนวนจุดจอดรถ</div>
                 </div>
-            
-
             </div>
 
             <!-- <div class="form-group row">
@@ -154,22 +153,13 @@
                 </div>
             </div> -->
 
+            <!-- ROW3 -->
             <div class="form row">
-                <!-- Region -->
+                <!-- BuildingArea -->
                 <div class="col-md-4 mb-3">
-                    <label for="colFormLabel">Region</label>
-                    <select name="region" class="custom-select" required>
-                        <option value="">เลือกภูมิภาคที่ตั้ง</option>
-                        <option value="northern">Northern Metropolitan</option>
-                        <option value="northern-victoria">Northern Victoria</option>
-                        <option value="south-eastern">South Eastern Metropolitan</option>
-                        <option value="southern">Southern Metropolitan</option>
-                        <option value="western">Western Metropolitan</option>
-                        <option value="western-victoria">Western Victoria</option>
-                        <option value="eastern">Eastern Metropolitan</option>
-                        <option value="eastern-victoria">Eastern Victoria</option>
-                    </select>
-                    <div class="invalid-feedback">กรุณาเลือกภูมิภาคที่ตั้ง</div>
+                <label for="colFormLabel">Building Area</label>
+                  <input type="number" step="any" class="form-control" name="buildingarea" placeholder="พื้นที่ของอาคาร(sq m)" required>
+                  <div class="invalid-feedback">กรุณาใส่พื้นที่ของอาคาร</div>
                 </div>
                 <!-- Council -->
                 <div class="col-md-4 mb-3">
@@ -212,6 +202,16 @@
                     </select>
                     <div class="invalid-feedback">กรุณาเลือกเขตที่ตั้ง</div>
                 </div>
+                <!-- อายุปีที่ขาย -->
+                <div class="col-md-4 mb-3">
+                    <label for="colFormLabel">Age</label>
+                      <input type="number" class="form-control" name="age" placeholder="อายุบ้าน(ปี)" required>
+                    <div class="invalid-feedback">กรุณาใส่อายุบ้าน</div>
+                </div>
+            </div>
+
+            <!-- ROW4 -->
+            <div class="form row">
                 <!-- Type -->
                 <div class="col-md-4 mb-3">
                     <label for="colFormLabel">Type of place</label>
@@ -223,20 +223,21 @@
                     </select>
                     <div class="invalid-feedback">กรุณาเลือกประเภทที่ดิน</div>
                 </div>
-            </div>
-
-            <div class="form row">
-                <!-- ParkingLots -->
+                <!-- Region -->
                 <div class="col-md-4 mb-3">
-                <label for="colFormLabel">Parking Lots</label>
-                  <input type="number" class="form-control" name="parkinglots" placeholder="จำนวนจุดที่จอดรถ" required>
-                  <div class="invalid-feedback">กรุณาใส่จำนวนจุดจอดรถ</div>
-                </div>
-                <!-- BuildingArea -->
-                <div class="col-md-4 mb-3">
-                <label for="colFormLabel">Building Area</label>
-                  <input type="number" step="any" class="form-control" name="buildingarea" placeholder="พื้นที่ของอาคาร(sq m)" required>
-                  <div class="invalid-feedback">กรุณาใส่พื้นที่ของอาคาร</div>
+                    <label for="colFormLabel">Region</label>
+                    <select name="region" class="custom-select" required>
+                        <option value="">เลือกภูมิภาคที่ตั้ง</option>
+                        <option value="northern">Northern Metropolitan</option>
+                        <option value="northern-victoria">Northern Victoria</option>
+                        <option value="south-eastern">South Eastern Metropolitan</option>
+                        <option value="southern">Southern Metropolitan</option>
+                        <option value="western">Western Metropolitan</option>
+                        <option value="western-victoria">Western Victoria</option>
+                        <option value="eastern">Eastern Metropolitan</option>
+                        <option value="eastern-victoria">Eastern Victoria</option>
+                    </select>
+                    <div class="invalid-feedback">กรุณาเลือกภูมิภาคที่ตั้ง</div>
                 </div>
             </div>
 
@@ -254,6 +255,14 @@
                 <button type="reset" value="Reset"  class="btn btn-danger">Clear</button>
             </div>
         </form>
+
+        <p>
+            ราคา<br>
+        </p>
+
+
+
+
                
     </div>
 
