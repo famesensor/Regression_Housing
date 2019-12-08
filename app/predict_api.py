@@ -23,10 +23,9 @@ def preparation(data) :
     df = df.merge(df_region)
     df = df.drop(['Type','Region'], axis=1)
     return df
-    # df.to_csv('d1.csv')
 
 def predict_price(data ,model) :
     poly_reg = PolynomialFeatures(degree=2)
     df_user = preparation(data)
     predict_p = model.predict(poly_reg.fit_transform(df_user))
-    return predict_p 
+    return predict_p[0]
