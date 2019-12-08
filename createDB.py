@@ -1,5 +1,5 @@
-from server import db
-from static.models.DB import Data
+from app import db
+from app.Db import Data
 
 db.create_all()
 
