@@ -34,29 +34,38 @@ def predict() :
         df_user = changedata(df_user)
         print(df_user)
         data_enter = Data(detail = df_user)
-        # try : 
-        db.session.add(data_enter)
-        db.session.commit()        
-        db.session.close()
-        print("Success")
-        # except:
-        #     db.session.rollback()
+        try : 
+            db.session.add(data_enter)
+            db.session.commit()        
+            db.session.close()
+            print("Success")
+        except:
+            db.session.rollback()
 
     # return jsonify({'price' : predict_p})
     return render_template("predict.html", predict = df_user)
 
 # @app.route('/process', methods=['POST'])
 # def process():
+#     df_user = []
+#     df_user.append(request.form['room'])
+#     df_user.append(request.form['date'])
+#     df_user.append(request.form['distance'])
+#     df_user.append(request.form['bedroom'])
+#     df_user.append(request.form['bathroom'])
+#     df_user.append(request.form['parkinglots'])
+#     df_user.append(request.form['buildingarea'])
+#     df_user.append(request.form['councilarea'])
+#     df_user.append(request.form['age'])
+#     df_user.append(request.form['type'])
+#     df_user.append(request.form['region'])
+#     predict_p = predict_price(df_user, model)
+#     df_user.append(predict_p)
+#     df_user = changedata(df_user)
+# 	# if (predict_p > 0) :
+# 	return jsonify({'price' : predict_p})
 
-# 	email = request.form['room']
-# 	name = request.form['date']
-
-# 	if name and email:
-# 		newName = name[::-1]
-
-# 		return jsonify({'name' : newName})
-
-# 	return jsonify({'error' : 'Missing data!'})
+# 	# return jsonify({'error' : 'Missing data!'})
 
 if __name__ == "__main__" :
     app.run(port="3300",debug=True)
