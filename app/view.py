@@ -9,7 +9,10 @@ model = pickle.load(open("app/static/models/model.pkl", "rb"))
 
 @app.route("/", methods=["GET"])
 def index() :
-    return render_template("index.html")
+    query_db = Data.query.order_by(Data.id.desc()).limit(10)
+    # for q in query_db :
+    #     print(q.room)
+    return render_template("index.html", query = query_db)
 
 @app.route("/predict", methods=["POST"])
 def predict() :
@@ -41,9 +44,10 @@ def predict() :
             print("Success")
         except:
             db.session.rollback()
+    query_db = Data.query.order_by(Data.id.desc()).limit(10)
 
     # return jsonify({'price' : predict_p})
-    return render_template("predict.html", predict = df_user)
+    return render_template("predict.html", predict = df_user, query = query_db)
 
 # @app.route('/process', methods=['POST'])
 # def process():

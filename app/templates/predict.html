@@ -14,6 +14,7 @@
     <!-- <script type="text/javascript" src="static/js/script.js" defer></script> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+    <link rel="shortcut icon" href="static/img/icons8-location-64.png" />
 </head>
 <style>
     * {
@@ -292,6 +293,9 @@
                 </div>
             </div>
         </div>
+        {%for q in query%}
+            <p>{{q.room}},{{q.bedroom}},{{q.bathroom}},{{q.buildarea}},{{q.carspots}},{{q.type_p}},{{q.distance}},{{q.region}},{{q.councilarea}},{{q.age}},{{q.date}},{{q.price_predict}}</p>
+        {%endfor%}
     </div>
 </body>
 
