@@ -1,6 +1,6 @@
 from app import app, db
 from flask import Flask, render_template, request, redirect, url_for, jsonify, get_template_attribute
-from app.predict_api import predict_price
+from app.predict_api import predict_price, changedata
 from sklearn import linear_model
 from app.Db import Data
 import pickle
@@ -31,15 +31,16 @@ def predict() :
         predict_p = predict_price(df_user, model)
         # predict_p = 10000
         df_user.append(predict_p)
-        # print(df_user)
+        df_user = changedata(df_user)
+        print(df_user)
         data_enter = Data(detail = df_user)
-        try : 
-            db.session.add(data_enter)
-            db.session.commit()        
-            db.session.close()
-            print("Success")
-        except:
-            db.session.rollback()
+        # try : 
+        db.session.add(data_enter)
+        db.session.commit()        
+        db.session.close()
+        print("Success")
+        # except:
+        #     db.session.rollback()
 
     # return jsonify({'price' : predict_p})
     return render_template("predict.html", predict = df_user)
