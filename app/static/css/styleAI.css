@@ -25,3 +25,8 @@ div h2{
 	margin-top: 1%;
 	margin-bottom: 5%;
 }
+
+.center_div{
+    margin: 0 auto;
+    width:40% /* value of your choice which suits your alignment */
+}

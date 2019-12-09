@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Price</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/styleAI.css">
+    <!-- <script type="text/javascript" src="static/js/script.js" defer></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Predict something</h2>
+    </div>
+
+    <form class="needs-validation" novalidate>
+        <div class="col-md-4 mb-3">
+            <label for="colFormLabel">Room</label>
+            <input type="number" min="0" class="form-control" name="room" id="rooms" laceholder="จำนวนห้องทั้งหมด" required>
+            <div class="invalid-feedback">กรุณาใส่จำนวนห้อง</div>
+        </div> 
+        <!-- Dateปีที่ขาย -->
+        <div class="col-md-4 mb-3">
+            <label for="colFormLabel">Date</label>
+            <select name="date" id="dates" class="custom-select" required>
+                <option value="">ปีที่ขาย</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+            </select>
+            <div class="invalid-feedback">กรุณาเลือกปีที่ขาย</div>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+	    <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+  
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<script>
+  $(document).ready( function() {
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+
+    var myInputs = document.querySelectorAll('.fixed');
+    myInputs.forEach(function(elem) {
+      elem.addEventListener("input", function() {
+        var dec = elem.getAttribute('decimals');
+        var regex = new RegExp("(\\.\\d{" + dec + "})\\d+", "g");
+        elem.value = elem.value.replace(regex, '$1');
+      });
+    });
+
+    $('form').on('submit', function(event) {
+
+      $.ajax({
+        data : {
+          room : $('#rooms').val(),
+          date : $('#dates').val()
+        },
+        type : 'POST',
+        url : '/process'
+      })
+      .done(function(data) {
+
+        if (data.error) {
+          $('#errorAlert').text(data.error).show();
+          $('#successAlert').hide();
+        }
+        else {
+          $('#successAlert').text(data.name).show();
+          $('#errorAlert').hide();
+        }
+
+      });
+
+      event.preventDefault();
+
+      });
+  });
+
+
+</script>
