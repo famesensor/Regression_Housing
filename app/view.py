@@ -34,13 +34,13 @@ def predict() :
         df_user = changedata(df_user)
         print(df_user)
         data_enter = Data(detail = df_user)
-        # try : 
-        db.session.add(data_enter)
-        db.session.commit()        
-        db.session.close()
-        print("Success")
-        # except:
-        #     db.session.rollback()
+        try : 
+            db.session.add(data_enter)
+            db.session.commit()        
+            db.session.close()
+            print("Success")
+        except:
+            db.session.rollback()
 
     # return jsonify({'price' : predict_p})
     return render_template("predict.html", predict = df_user)
