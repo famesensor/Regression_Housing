@@ -36,7 +36,7 @@ def changedata(data) :
     df_type = {'h':'House', 't':'Townhouse', 'u':'Unit'}
     df_con = {1:'Banyule City Council',
         2:'Bayside City Council',
-        3:'Boroondara City Counci',
+        3:'Boroondara City Council',
         4:'Brimbank City Council',
         5:'Cardinia Shire Council',
         6:'Casey City Council',

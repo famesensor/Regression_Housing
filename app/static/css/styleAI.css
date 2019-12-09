@@ -12,14 +12,6 @@ body{
         .form label {
           text-align: left; } }
 
-div h2{
-	font-family: 'Roboto Mono', monospace;
-	/*padding: 1%;*/
-	margin-top: 1%;
-	margin-bottom: 1%;
-	/*margin-left: 3%;*/
-}
-
 .btncenter{
 	margin-left: 2%;
 	margin-top: 1%;
