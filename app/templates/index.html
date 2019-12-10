@@ -148,7 +148,7 @@
                       <option value="14">Knox City</option>
                       <option value="22">Monash City</option>
                     </select>
-                    <select name="councilarea" class="southern custom-select" >
+                    <select name="councilarea" class="Southern_Metropolitan custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <option value="2">Bayside City</option>
                       <option value="3">Boroondara City</option>
@@ -267,13 +267,13 @@
     'use strict';
     var CountSelect = $('.region'),
     
-        myRegion = ['Northern_Metropolitan', 'Northern_Victoria', 'Eastern_Metropolitan', 'Eastern_Victoria','South_Eastern_Metropolitan','southern','Western_Metropolitan','Western_Victoria'],
+        myRegion = ['Northern_Metropolitan', 'Northern_Victoria', 'Eastern_Metropolitan', 'Eastern_Victoria','South_Eastern_Metropolitan','Southern_Metropolitan','Western_Metropolitan','Western_Victoria'],
         Northern_Metropolitan = [],
         Northern_Victoria = [],
         Eastern_Metropolitan = [],
         Eastern_Victoria = [],
         South_Eastern_Metropolitan = [],
-        southern = [],
+        Southern_Metropolitan = [],
         Western_Metropolitan = [],
         Western_Victoria = [];
         
@@ -284,13 +284,49 @@
         var i;
         
         for (i = 0; i < valriable.length; i += 1) {
+
+          var temp_value, temp_text, temp_id;
+
+          if (valriable[i] === 'Northern_Metropolitan') {
+            temp_value="northern"
+            temp_text="Northern Metropolitan"
+            temp_id=valriable[i]
+          } else if (valriable[i] === 'Northern_Victoria') {
+            temp_value="northern-victoria"
+            temp_text="Northern Victoria"
+            temp_id=valriable[i]
+          } else if (valriable[i] === 'Eastern_Metropolitan') {
+            temp_value="eastern"
+            temp_text="Eastern Metropolitan"
+            temp_id=valriable[i]
+          } else if (valriable[i] === 'Eastern_Victoria') {
+            temp_value="eastern-victoria"
+            temp_text="Eastern Victoria"
+            temp_id=valriable[i]
+          } else if (valriable[i] === 'South_Eastern_Metropolitan') {
+            temp_value="south-eastern"
+            temp_text="South Eastern Metropolitan"
+            temp_id=valriable[i]
+          } else if (valriable[i] === 'Southern_Metropolitan') {
+            temp_value="southern"
+            temp_text="Southern Metropolitan"
+            temp_id=valriable[i]
+          } else if (valriable[i] === 'Western_Metropolitan') {
+            temp_value="western"
+            temp_text="Western Metropolitan"
+            temp_id=valriable[i]
+          } else if (valriable[i] === 'Western_Victoria') {
+            temp_value="western-victoria"
+            temp_text="Western Victoria"
+            temp_id=valriable[i]
+          }
     
             $('<option>', {
-              value: valriable[i],
-              text: valriable[i], 
-              id: valriable[i]}
+              value: temp_value,
+              text: temp_text, 
+              id: temp_id
+            }
               // , if (valriable[i] = 'Northern_Metropolitan') {value="northern"}
-
               )
 
                 .appendTo(elementToAppend);
@@ -300,16 +336,12 @@
     
     // Create Option myCountries
     CreateOption(myRegion, $('.region'));
-    // Create Option Africa
     CreateOption(Northern_Metropolitan, $('.Northern_Metropolitan'));
-    // Create Option Africa
     CreateOption(Northern_Victoria, $('.Northern_Victoria'));
-    // Create Option Africa
     CreateOption(Eastern_Metropolitan, $('.Eastern_Metropolitan'));
-    // Create Option Africa
     CreateOption(Eastern_Victoria, $('.Eastern_Victoria'));
     CreateOption(South_Eastern_Metropolitan, $('.South_Eastern_Metropolitan'));
-    CreateOption(southern, $('.southern'));
+    CreateOption(Southern_Metropolitan, $('.Southern_Metropolitan'));
     CreateOption(Western_Metropolitan, $('.Western_Metropolitan'));
     CreateOption(Western_Victoria, $('.Western_Victoria'));
     
