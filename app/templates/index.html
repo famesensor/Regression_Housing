@@ -18,7 +18,7 @@
         <h2>Predict something</h2>
     </div>
 
-    <div class="container center_div">  
+    <div class="container ">  
         <form class="needs-validation " action="/predict" method="POST" novalidate>
                 <div class="col-md-5 mb-3">
                     <label for="colFormLabel">Type of place</label>
@@ -69,11 +69,11 @@
                 <!-- ระยะห่างกับศูนย์การค้า -->
                 <div class="col-md-5 mb-3">
                     <label for="colFormLabel">Distance</label>
-                    <input type="number" min="0" step="0.1" class="form-control fixed" decimals="2" name="distance" placeholder="ระยะห่างจากศูนย์กลางการค้า(km)" required>
+                    <input type="number" min="0" step="0.01" class="form-control fixed" decimals="2" name="distance" placeholder="ระยะห่างจากศูนย์กลางการค้า(km)" required>
                     <div class="invalid-feedback">กรุณาใส่ระยะทาง</div>
                 </div> 
                 <!-- Region -->
-                <div class="col-md-5 mb-3">
+                <!-- <div class="col-md-5 mb-3">
                     <label for="colFormLabel">Region</label>
                     <select name="region" class="custom-select" required>
                         <option value="">เลือกภูมิภาคที่ตั้ง</option>
@@ -87,9 +87,106 @@
                         <option value="eastern-victoria">Eastern Victoria</option>
                     </select>
                     <div class="invalid-feedback">กรุณาเลือกภูมิภาคที่ตั้ง</div>
-                </div> 
-                <!-- Council -->
+                </div> -->
+
                 <div class="col-md-5 mb-3">
+                  <label for="colFormLabel">Region</label>
+                  <select name="region" class="region custom-select" required>
+                    <option value="">เลือกภูมิภาคที่ตั้ง</option>
+                  </select>
+                  <div class="invalid-feedback">กรุณาเลือกภูมิภาคที่ตั้ง</div>
+                </div>
+
+
+                <div class="col-md-5 mb-3">
+                  <label for="colFormLabel">Council Area</label>
+                  <div class="option">
+                    <select name="councilarea" class="Northern_Metropolitan custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="1">Banyule City</option>
+                      <option value="7">Darebin City</option>
+                      <option value="12">Hume City</option>
+                      <option value="19">Melbourne City</option>
+                      <option value="25">Moreland City</option>
+                      <option value="30">Whittlesea City</option>
+                      <option value="32">Yarra City</option>
+                    </select>
+                    <select name="councilarea" class="Northern_Victoria custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="15">Macedon Ranges Shire</option>
+                      <option value="20">Melton City</option>
+                      <option value="21">Mitchell Shire</option>
+                      <option value="26">Nillumbik Shire</option>
+                      <option value="30">Whittlesea City</option>
+                      <option value="33">Yarra Ranges Shire</option>
+                    </select>
+                    <select name="councilarea" class="Eastern_Metropolitan custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="1">Banyule City</option>
+                      <option value="3">Boroondara City</option>
+                      <option value="14">Knox City</option>
+                      <option value="16">Manningham City</option>
+                      <option value="18">Maroondah City</option>
+                      <option value="22">Monash City</option>
+                      <option value="26">Nillumbik Shire</option>
+                      <option value="29">Whitehorse City</option>
+                    </select>
+                    <select name="councilarea" class="Eastern_Victoria custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="5">Cardinia Shire</option>
+                      <option value="6">Casey City</option>
+                      <option value="8">Frankston City</option>
+                      <option value="16">Manningham City</option>
+                      <option value="33">Yarra Ranges Shire</option>
+                    </select>
+                    <select name="councilarea" class="South_Eastern_Metropolitan custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="6">Casey City</option>
+                      <option value="8">Frankston City</option>
+                      <option value="10">Greater Dandenong City</option>
+                      <option value="13">Kingston City</option>
+                      <option value="14">Knox City</option>
+                      <option value="22">Monash City</option>
+                    </select>
+                    <select name="councilarea" class="southern custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="2">Bayside City</option>
+                      <option value="3">Boroondara City</option>
+                      <option value="9">Glen Eira City</option>
+                      <option value="13">Kingston City</option>
+                      <option value="19">Melbourne City</option>
+                      <option value="22">Monash City</option>
+                      <option value="27">Port Phillip City</option>
+                      <option value="28">Stonnington City</option>
+                    </select>
+                    <select name="councilarea" class="Western_Metropolitan custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="4">Brimbank City</option>
+                      <option value="11">Hobsons Bay City</option>
+                      <option value="12">Hume City</option>
+                      <option value="17">Maribyrnong City</option>
+                      <option value="20">Melton City</option>
+                      <option value="23">Moonee Valley City</option>
+                      <option value="25">Moreland City</option>
+                      <option value="31">Wyndham City</option>
+                    </select>
+                    <select name="councilarea" class="Western_Victoria custom-select" >
+                      <option value="">เลือกเขตที่ตั้ง</option>
+                      <option value="20">Melton City</option>
+                      <option value="24">Moorabool Shire</option>
+                    </select>
+                     <div  class="invalid-feedback">กรุณาเลือกเขตที่ตั้ง</div>
+                  </div>
+
+               </div>
+
+
+
+
+
+
+                <!-- Council -->
+               <!--  <div class="col-md-5 mb-3">
                   <label for="colFormLabel">Council Area</label>
                     <select name="councilarea" class="custom-select" required>
                       <option value="">เลือกเขตที่ตั้ง</option>
@@ -128,7 +225,7 @@
                       <option value="33">Yarra Ranges Shire</option>
                   </select>
                   <div class="invalid-feedback">กรุณาเลือกเขตที่ตั้ง</div> 
-                </div>          
+                </div> -->          
               <!-- Dateปีที่ขาย -->
               <div class="col-md-5 mb-3">
                   <label for="colFormLabel">Date</label>
@@ -145,8 +242,97 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="reset" value="Reset"  class="btn btn-danger">Clear</button>
             </div>
+
         </form>
+    
+
+              <!-- <select class="region"></select>
+              <div class="option">
+                <select class="Northern_Metropolitan" ></select>
+                <select class="Northern_Victoria"></select>
+                <select class="Eastern_Metropolitan"></select>
+                <select class="Eastern_Victoria"></select>
+                <select class="South_Eastern_Metropolitan"></select>
+                <select class="Southern_Metropolitan"></select>
+                <select class="Western_Metropolitan"></select>
+                <select class="Western_Victoria"></select>
+              </div> -->
+
     </div>
+
+
+<script>
+  $(function () {
+   
+    'use strict';
+    var CountSelect = $('.region'),
+    
+        myRegion = ['Northern_Metropolitan', 'Northern_Victoria', 'Eastern_Metropolitan', 'Eastern_Victoria','South_Eastern_Metropolitan','southern','Western_Metropolitan','Western_Victoria'],
+        Northern_Metropolitan = [],
+        Northern_Victoria = [],
+        Eastern_Metropolitan = [],
+        Eastern_Victoria = [],
+        South_Eastern_Metropolitan = [],
+        southern = [],
+        Western_Metropolitan = [],
+        Western_Victoria = [];
+        
+    // Function Create Option    
+    
+    function CreateOption(valriable, elementToAppend) {
+        
+        var i;
+        
+        for (i = 0; i < valriable.length; i += 1) {
+    
+            $('<option>', {
+              value: valriable[i],
+              text: valriable[i], 
+              id: valriable[i]}
+              // , if (valriable[i] = 'Northern_Metropolitan') {value="northern"}
+
+              )
+
+                .appendTo(elementToAppend);
+        }
+    }
+    
+    
+    // Create Option myCountries
+    CreateOption(myRegion, $('.region'));
+    // Create Option Africa
+    CreateOption(Northern_Metropolitan, $('.Northern_Metropolitan'));
+    // Create Option Africa
+    CreateOption(Northern_Victoria, $('.Northern_Victoria'));
+    // Create Option Africa
+    CreateOption(Eastern_Metropolitan, $('.Eastern_Metropolitan'));
+    // Create Option Africa
+    CreateOption(Eastern_Victoria, $('.Eastern_Victoria'));
+    CreateOption(South_Eastern_Metropolitan, $('.South_Eastern_Metropolitan'));
+    CreateOption(southern, $('.southern'));
+    CreateOption(Western_Metropolitan, $('.Western_Metropolitan'));
+    CreateOption(Western_Victoria, $('.Western_Victoria'));
+    
+    // Hide All Select
+    $('.option select').hide();
+    
+    // Show First Selected
+    $('.Northern_Metropolitan').show().css('display', 'inline-block');
+    
+    // Show List Option City Whene user Chosse Countries
+    CountSelect.on('change', function () {
+        
+        // get Id option 
+        var myId = $(this).find(':selected').attr('id');
+        console.log($(this).val());
+        // Show Select Has class = Id And Hide Siblings
+        $('.option select').filter('.' + myId).fadeIn(400).siblings('select').hide();
+        
+    });
+
+});
+</script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
