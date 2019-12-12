@@ -18,6 +18,45 @@ def preparation(data) :
       'Regionname_Western Metropolitan':[0,0,0,0,0,0,1,0],
       'Regionname_Western Victoria':[0,0,0,0,0,0,0,1]
     })
+    df_con = {'Banyule City':1,
+        'Bayside City':2,
+        'Boroondara City':3,
+        'Brimbank City':4,
+        'Cardinia Shire':5,
+        'Casey City':6,
+        'Darebin City':7,
+        'Frankston City':8,
+        'Glen Eira City':9,
+        'Greater Dandenong City':10,
+        'Hobsons Bay City':11,
+        'Hume City':12,
+        'Kingston City':13,
+        'Knox City':14,
+        'Macedon Ranges Shire':15,
+        'Manningham City':16,
+        'Maribyrnong City':17,
+        'Maroondah City':18,
+        'Melbourne City':19,
+        'Melton City':20,
+        'Mitchell Shire':21,
+        'Monash City':22,
+        'Moonee Valley City':23,
+        'Moorabool Shire':24,
+        'Moreland City':25,
+        'Nillumbik Shire':26,
+        'Port Phillip City':27,
+        'Stonnington City':28,
+        'Whitehorse City':29,
+        'Whittlesea City':30,
+        'Wyndham City':31,
+        'Yarra City':32,
+        'Yarra Ranges Shire':33
+    }
+    for k,v in df_con.items() :
+        print(v)
+        if str(data[7]) == k :
+            data[7] = v
+            break
     df = pd.DataFrame([data], columns=['Room','Date','Distance','Bedroom2','Bathroom','Car','BuildingArea','CouncilArea','Age','Type','Region'])
     df = df.merge(df_type)
     df = df.merge(df_region)
