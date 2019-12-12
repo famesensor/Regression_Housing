@@ -35,15 +35,15 @@ def predict() :
         # predict_p = 10000
         df_user.append(int(predict_p))
         df_user = changedata(df_user)
-        # print(df_user)
-        data_enter = Data(detail = df_user)
-        try : 
-            db.session.add(data_enter)
-            db.session.commit()        
-            db.session.close()
-            print("Success")
-        except:
-            db.session.rollback()
+        print(df_user)
+        # data_enter = Data(detail = df_user)
+        # try : 
+        #     db.session.add(data_enter)
+        #     db.session.commit()        
+        #     db.session.close()
+        #     print("Success")
+        # except:
+        #     db.session.rollback()
     query_db = Data.query.order_by(Data.id.desc()).limit(10)
 
     # return jsonify({'price' : predict_p})
