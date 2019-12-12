@@ -231,6 +231,13 @@
                       <option value="2016">2016</option>
                       <option value="2017">2017</option>
                       <option value="2018">2018</option>
+                      <option value="2019">2019</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                      <option value="2024">2024</option>
+                      <option value="2025">2025</option>
                   </select>
                   <div class="invalid-feedback">กรุณาเลือกปีที่ขาย</div>
               </div>
@@ -258,7 +265,7 @@
     </div>
 
 
-<script>
+<!-- <script>
   $(function () {
    
     'use strict';
@@ -282,51 +289,45 @@
         
         for (i = 0; i < valriable.length; i += 1) {
 
-          var temp_value, temp_text, temp_id;
+          var temp_value, temp_text;
 
           if (valriable[i] === 'Northern_Metropolitan') {
             temp_value="northern"
             temp_text="Northern Metropolitan"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           } else if (valriable[i] === 'Northern_Victoria') {
             temp_value="northern-victoria"
             temp_text="Northern Victoria"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           } else if (valriable[i] === 'Eastern_Metropolitan') {
             temp_value="eastern"
             temp_text="Eastern Metropolitan"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           } else if (valriable[i] === 'Eastern_Victoria') {
             temp_value="eastern-victoria"
             temp_text="Eastern Victoria"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           } else if (valriable[i] === 'South_Eastern_Metropolitan') {
             temp_value="south-eastern"
             temp_text="South Eastern Metropolitan"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           } else if (valriable[i] === 'Southern_Metropolitan') {
             temp_value="southern"
             temp_text="Southern Metropolitan"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           } else if (valriable[i] === 'Western_Metropolitan') {
             temp_value="western"
             temp_text="Western Metropolitan"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           } else if (valriable[i] === 'Western_Victoria') {
             temp_value="western-victoria"
             temp_text="Western Victoria"
-            temp_id=valriable[i]
+            // temp_id=valriable[i]
           }
     
-            $('<option>', {
-              value: temp_value,
-              text: temp_text, 
-              id: temp_id
-            }
+            $('<option>', {value: temp_value, text: temp_text, id: valriable[i]}
               // , if (valriable[i] = 'Northern_Metropolitan') {value="northern"}
-              )
-
-                .appendTo(elementToAppend);
+              ).appendTo(elementToAppend);
         }
     }
     
@@ -361,7 +362,128 @@
     });
 
 });
+</script> -->
+
+
+<script type="text/javascript">
+  $(function () {
+   
+    'use strict';
+    
+    var CountSelect = $('.region'),
+    
+        myRegion = ['Northern_Metropolitan', 'Northern_Victoria', 'Eastern_Metropolitan', 'Eastern_Victoria', 'South_Eastern_Metropolitan', 'Southern_Metropolitan', 'Western_Metropolitan', 'Western_Victoria'],
+        
+        Northern_Metropolitan = ['Banyule City', 'Darebin City', 'Hume City', 'Melbourne City', 'Moreland City', 'Whittlesea City', 'Yarra City'],
+        
+        Northern_Victoria = ['Macedon Ranges Shire', 'Melton City', 'Mitchell Shire', 'Nillumbik Shire', 'Whittlesea City', 'Yarra Ranges Shire'],
+        
+        Eastern_Metropolitan = ['Banyule City', 'Boroondara City', 'Knox City', 'Manningham City', 'Maroondah City', 'Monash City', 'Nillumbik Shire', 'Whitehorse City'],
+        
+        Eastern_Victoria = ['Cardinia Shire', 'Casey City', 'Frankston City', 'Manningham City', 'Yarra Ranges Shire'],
+
+        South_Eastern_Metropolitan = ['Casey City', 'Frankston City', 'Greater Dandenong City', 'Kingston City', 'Knox City', 'Monash City'],
+
+        Southern_Metropolitan = ['Bayside City', 'Boroondara City', 'Glen Eira City', 'Kingston City', 'Melbourne City', 'Monash City', 'Port Phillip City', 'Stonnington City'],
+
+        Western_Metropolitan = ['Brimbank City', 'Hobsons Bay City', 'Hume City', 'Maribyrnong City', 'Melton City', 'Moonee Valley City', 'Moreland City', 'Wyndham City'],
+
+        Western_Victoria = ['Melton City', 'Moorabool Shire'];
+        
+    // Function Create Option    
+    
+    function CreateOption(valriable, elementToAppend) {
+        
+        var i;
+        
+        for (i = 0; i < valriable.length; i += 1) {
+
+            var temp_value, temp_text;
+
+          if (valriable[i] === 'Northern_Metropolitan') {
+            temp_value="northern"
+            temp_text="Northern Metropolitan"
+            // temp_id=valriable[i]
+          } else if (valriable[i] === 'Northern_Victoria') {
+            temp_value="northern-victoria"
+            temp_text="Northern Victoria"
+            // temp_id=valriable[i]
+          } else if (valriable[i] === 'Eastern_Metropolitan') {
+            temp_value="eastern"
+            temp_text="Eastern Metropolitan"
+            // temp_id=valriable[i]
+          } else if (valriable[i] === 'Eastern_Victoria') {
+            temp_value="eastern-victoria"
+            temp_text="Eastern Victoria"
+            // temp_id=valriable[i]
+          } else if (valriable[i] === 'South_Eastern_Metropolitan') {
+            temp_value="south-eastern"
+            temp_text="South Eastern Metropolitan"
+            // temp_id=valriable[i]
+          } else if (valriable[i] === 'Southern_Metropolitan') {
+            temp_value="southern"
+            temp_text="Southern Metropolitan"
+            // temp_id=valriable[i]
+          } else if (valriable[i] === 'Western_Metropolitan') {
+            temp_value="western"
+            temp_text="Western Metropolitan"
+            // temp_id=valriable[i]
+          } else if (valriable[i] === 'Western_Victoria') {
+            temp_value="western-victoria"
+            temp_text="Western Victoria"
+            // temp_id=valriable[i]
+          }
+
+
+
+    
+            $('<option>', {value: temp_value, text: valriable[i], id: valriable[i]})
+                .appendTo(elementToAppend);
+        }
+    }
+    
+    
+    CreateOption(myRegion, $('.region'));
+    
+    CreateOption(Northern_Metropolitan, $('.Northern_Metropolitan'));
+    
+    CreateOption(Northern_Victoria, $('.Northern_Victoria'));
+    
+    CreateOption(Eastern_Metropolitan, $('.Eastern_Metropolitan'));
+    
+    CreateOption(Eastern_Victoria, $('.Eastern_Victoria'));
+
+    CreateOption(South_Eastern_Metropolitan, $('.South_Eastern_Metropolitan'));
+
+    CreateOption(Southern_Metropolitan, $('.Southern_Metropolitan'));
+
+    CreateOption(Western_Metropolitan, $('.Western_Metropolitan'));
+
+    CreateOption(Western_Victoria, $('.Western_Victoria'));
+    
+    // Hide All Select
+    $('.option select').hide();
+    
+    // Show First Selected
+    $('.Northern_Metropolitan').show().css('display', 'inline-block');
+    
+    
+    
+    // Show List Option City Whene user Chosse Countries
+    
+    CountSelect.on('change', function () {
+        
+        // get Id option 
+        var myId = $(this).find(':selected').attr('id');
+        console.log($(this).val());
+        // Show Select Has class = Id And Hide Siblings
+        $('.option select').filter('.' + myId).fadeIn(400).siblings('select').hide();
+        
+    });
+    
+});
 </script>
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
