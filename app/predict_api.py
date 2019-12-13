@@ -65,14 +65,24 @@ def preparation(data) :
     return df
 
 def predict_price(data ,model) :
-    poly_reg = PolynomialFeatures(degree=2)
+    # poly_reg = PolynomialFeatures(degree=2)
     df_user = preparation(data)
-    predict_p = model.predict(poly_reg.fit_transform(df_user))
+    # predict_p = model.predict(poly_reg.fit_transform(df_user))
+    predict_p = model.predict(df_user)
     return predict_p[0]
 
 def changedata(data) :
     result = data
     df_type = {'h':'House', 't':'Townhouse', 'u':'Unit'}
+    df_reg = {'eastern':'Eastern Victoria',
+        'eastern-victoria':'Eastern Victoria',
+        'northern':'Northern Metropolitan',
+        'northern-victoria':'Northern Victoria',
+        'south-eastern':'South-Eastern Metropolitan',
+        'southern':'Southern Metropolitan',
+        'western':'Western Metropolitan',
+        'western-victoria':'Western Victoria'
+    }
     df_con = {1:'Banyule City Council',
         2:'Bayside City Council',
         3:'Boroondara City Council',
@@ -114,5 +124,9 @@ def changedata(data) :
     for k,v in df_con.items() :
         if int(result[7]) == k :
             result[7] = v
+            break
+    for k,v in df_reg.items() :
+        if result[10] == k :
+            result[10] = v
             break
     return result

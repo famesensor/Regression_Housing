@@ -32,10 +32,11 @@ def predict() :
         df_user.append(request.form['type'])
         df_user.append(request.form['region'])
         predict_p = predict_price(df_user, model)
+        print(predict_price(df_user, model))
         # predict_p = 10000
-        df_user.append(predict_p)
+        df_user.append(int(predict_p))
         df_user = changedata(df_user)
-        print(df_user)
+        # print(df_user)
         # data_enter = Data(detail = df_user)
         # try : 
         #     db.session.add(data_enter)

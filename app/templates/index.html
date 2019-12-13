@@ -102,7 +102,7 @@
                 <div class="col-md-5 mb-3">
                   <label for="colFormLabel">Council Area</label>
                   <div class="option">
-                    <select name="councilarea" class="Northern_Metropolitan custom-select" >
+                    <select class="Northern_Metropolitan custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="1">Banyule City</option>
                       <option value="7">Darebin City</option>
@@ -112,7 +112,7 @@
                       <option value="30">Whittlesea City</option>
                       <option value="32">Yarra City</option> -->
                     </select>
-                    <select name="councilarea" class="Northern_Victoria custom-select" >
+                    <select class="Northern_Victoria custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="15">Macedon Ranges Shire</option>
                       <option value="20">Melton City</option>
@@ -121,7 +121,7 @@
                       <option value="30">Whittlesea City</option>
                       <option value="33">Yarra Ranges Shire</option> -->
                     </select>
-                    <select name="councilarea" class="Eastern_Metropolitan custom-select" >
+                    <select class="Eastern_Metropolitan custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="1">Banyule City</option>
                       <option value="3">Boroondara City</option>
@@ -132,7 +132,7 @@
                       <option value="26">Nillumbik Shire</option>
                       <option value="29">Whitehorse City</option> -->
                     </select>
-                    <select name="councilarea" class="Eastern_Victoria custom-select" >
+                    <select class="Eastern_Victoria custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="5">Cardinia Shire</option>
                       <option value="6">Casey City</option>
@@ -140,7 +140,7 @@
                       <option value="16">Manningham City</option>
                       <option value="33">Yarra Ranges Shire</option> -->
                     </select>
-                    <select name="councilarea" class="South_Eastern_Metropolitan custom-select" >
+                    <select class="South_Eastern_Metropolitan custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="6">Casey City</option>
                       <option value="8">Frankston City</option>
@@ -149,7 +149,7 @@
                       <option value="14">Knox City</option>
                       <option value="22">Monash City</option> -->
                     </select>
-                    <select name="councilarea" class="Southern_Metropolitan custom-select" >
+                    <select class="Southern_Metropolitan custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="2">Bayside City</option>
                       <option value="3">Boroondara City</option>
@@ -160,7 +160,7 @@
                       <option value="27">Port Phillip City</option>
                       <option value="28">Stonnington City</option> -->
                     </select>
-                    <select name="councilarea" class="Western_Metropolitan custom-select" >
+                    <select class="Western_Metropolitan custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="4">Brimbank City</option>
                       <option value="11">Hobsons Bay City</option>
@@ -171,7 +171,7 @@
                       <option value="25">Moreland City</option>
                       <option value="31">Wyndham City</option> -->
                     </select>
-                    <select name="councilarea" class="Western_Victoria custom-select" >
+                    <select class="Western_Victoria custom-select" >
                       <option value="">เลือกเขตที่ตั้ง</option>
                       <!-- <option value="20">Melton City</option>
                       <option value="24">Moorabool Shire</option> -->
@@ -264,107 +264,6 @@
 
     </div>
 
-
-<!-- <script>
-  $(function () {
-   
-    'use strict';
-    var CountSelect = $('.region'),
-    
-        myRegion = ['Northern_Metropolitan', 'Northern_Victoria', 'Eastern_Metropolitan', 'Eastern_Victoria','South_Eastern_Metropolitan','Southern_Metropolitan','Western_Metropolitan','Western_Victoria'],
-        Northern_Metropolitan = ['Banyule City', 'Darebin City', 'Hume City', 'Melbourne City', 'Moreland City', 'Whittlesea City', 'Yarra City'],
-        Northern_Victoria = ['Macedon Ranges Shire', 'Melton City', 'Mitchell Shire', 'Nillumbik Shire', 'Whittlesea City', 'Yarra Ranges Shire'],
-        Eastern_Metropolitan = ['Banyule City', 'Boroondara City', 'Knox City', 'Manningham City', 'Maroondah City', 'Monash City', 'Nillumbik Shire', 'Whitehorse City'],
-        Eastern_Victoria = ['Cardinia Shire', 'Casey City', 'Frankston City', 'Manningham City', 'Yarra Ranges Shire'],
-        South_Eastern_Metropolitan = ['Casey City', 'Frankston City', 'Greater Dandenong City', 'Kingston City', 'Knox City', 'Monash City'],
-        Southern_Metropolitan = ['Bayside City', 'Boroondara City', 'Glen Eira City', 'Kingston City', 'Melbourne City', 'Monash City', 'Port Phillip City', 'Stonnington City'],
-        Western_Metropolitan = ['Brimbank City', 'Hobsons Bay City', 'Hume City', 'Maribyrnong City', 'Melton City', 'Moonee Valley City', 'Moreland City', 'Wyndham City'],
-        Western_Victoria = ['Melton City', 'Moorabool Shire'];
-        
-    // Function Create Option    
-    
-    function CreateOption(valriable, elementToAppend) {
-        
-        var i;
-        
-        for (i = 0; i < valriable.length; i += 1) {
-
-          var temp_value, temp_text;
-
-          if (valriable[i] === 'Northern_Metropolitan') {
-            temp_value="northern"
-            temp_text="Northern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Northern_Victoria') {
-            temp_value="northern-victoria"
-            temp_text="Northern Victoria"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Eastern_Metropolitan') {
-            temp_value="eastern"
-            temp_text="Eastern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Eastern_Victoria') {
-            temp_value="eastern-victoria"
-            temp_text="Eastern Victoria"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'South_Eastern_Metropolitan') {
-            temp_value="south-eastern"
-            temp_text="South Eastern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Southern_Metropolitan') {
-            temp_value="southern"
-            temp_text="Southern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Western_Metropolitan') {
-            temp_value="western"
-            temp_text="Western Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Western_Victoria') {
-            temp_value="western-victoria"
-            temp_text="Western Victoria"
-            // temp_id=valriable[i]
-          }
-    
-            $('<option>', {value: temp_value, text: temp_text, id: valriable[i]}
-              // , if (valriable[i] = 'Northern_Metropolitan') {value="northern"}
-              ).appendTo(elementToAppend);
-        }
-    }
-    
-    
-    // Create Option myCountries
-    CreateOption(myRegion, $('.region'));
-    CreateOption(Northern_Metropolitan, $('.Northern_Metropolitan'));
-    CreateOption(Northern_Victoria, $('.Northern_Victoria'));
-    CreateOption(Eastern_Metropolitan, $('.Eastern_Metropolitan'));
-    CreateOption(Eastern_Victoria, $('.Eastern_Victoria'));
-    CreateOption(South_Eastern_Metropolitan, $('.South_Eastern_Metropolitan'));
-    CreateOption(Southern_Metropolitan, $('.Southern_Metropolitan'));
-    CreateOption(Western_Metropolitan, $('.Western_Metropolitan'));
-    CreateOption(Western_Victoria, $('.Western_Victoria'));
-    
-    // Hide All Select
-    $('.option select').hide();
-    
-    // Show First Selected
-    $('.Northern_Metropolitan').show().css('display', 'inline-block');
-    
-    // Show List Option City Whene user Chosse Countries
-    CountSelect.on('change', function () {
-        
-        // get Id option 
-        var myId = $(this).find(':selected').attr('id');
-        console.log($(this).val());
-        // Show Select Has class = Id And Hide Siblings
-        $('.option select').filter('.' + myId).fadeIn(400).siblings('select').hide();
-        console.log($('.option select').val());
-        
-    });
-
-});
-</script> -->
-
-
 <script type="text/javascript">
   $(function () {
    
@@ -399,45 +298,18 @@
         for (i = 0; i < valriable.length; i += 1) {
 
             var temp_value, temp_text;
-
-          if (valriable[i] === 'Northern_Metropolitan') {
-            temp_value="northern"
-            temp_text="Northern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Northern_Victoria') {
-            temp_value="northern-victoria"
-            temp_text="Northern Victoria"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Eastern_Metropolitan') {
-            temp_value="eastern"
-            temp_text="Eastern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Eastern_Victoria') {
-            temp_value="eastern-victoria"
-            temp_text="Eastern Victoria"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'South_Eastern_Metropolitan') {
-            temp_value="south-eastern"
-            temp_text="South Eastern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Southern_Metropolitan') {
-            temp_value="southern"
-            temp_text="Southern Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Western_Metropolitan') {
-            temp_value="western"
-            temp_text="Western Metropolitan"
-            // temp_id=valriable[i]
-          } else if (valriable[i] === 'Western_Victoria') {
-            temp_value="western-victoria"
-            temp_text="Western Victoria"
-            // temp_id=valriable[i]
-          }
-
-
-
-    
-            $('<option>', {value: temp_value, text: valriable[i], id: valriable[i]})
+        
+            $('<option>', {
+              value: valriable[i]
+                .replace('_Metropolitan','')
+                .replace('_Victoria','-victoria')
+                .replace('_','-')
+                .replace('Western','western')
+                .replace('South','south')
+                .replace('Eastern','eastern')
+                .replace('Northern','northern'),
+              text: valriable[i].replace(/_/g, ' '), 
+              id: valriable[i]})
                 .appendTo(elementToAppend);
         }
     }
@@ -467,18 +339,27 @@
     // Show First Selected
     $('.Northern_Metropolitan').show().css('display', 'inline-block');
     
-    
-    
     // Show List Option City Whene user Chosse Countries
     
     CountSelect.on('change', function () {
         
         // get Id option 
         var myId = $(this).find(':selected').attr('id');
+        // var temp = '.' + myId;
         console.log($(this).val());
+
+        // $('.option select').toggleClass(myId);
+
         // Show Select Has class = Id And Hide Siblings
-        $('.option select').filter('.' + myId).fadeIn(400).siblings('select').hide();
-        
+        // $('.option select').show('.' + myId).fadeIn(400).siblings('select').prop('selectedIndex', 0).hide();
+        $('.option select')
+        .filter('.' + myId)
+        .attr('name','councilarea')
+        .fadeIn(400)
+        .siblings('select')
+        .removeAttr('name')
+        .prop('selectedIndex', 0)
+        .hide();
     });
     
 });

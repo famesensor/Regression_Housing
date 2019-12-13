@@ -80,20 +80,20 @@ y_train = train.Price
 X_test = test.loc[:, df.columns != 'Price']
 y_test = test.Price
 
-# regression = LinearRegression()
-# regression.fit(X_train.values, y_train.values)
+regression = LinearRegression()
+regression.fit(X_train.values, y_train.values)
 
-poly_reg = PolynomialFeatures(degree=2)
-X_poly = poly_reg.fit_transform(X_train)
-model = LinearRegression()
-model.fit(X_poly, y_train)
+# poly_reg = PolynomialFeatures(degree=2)
+# X_poly = poly_reg.fit_transform(X_train)
+# model = LinearRegression()
+# model.fit(X_poly, y_train)
 
-predict_test = model.predict(poly_reg.fit_transform(X_test))
+predict_test = model.predict(X_test)
 result = r2_score(y_test, predict_test)
 print("Accuracy: %.2f%%" % (result*100.0))
 
 # Export model
-pickle.dump(model, open('model.pkl','wb'))
+# pickle.dump(model, open('model.pkl','wb'))
 
 # Plot result
 #fig, ax = plt.subplots()
