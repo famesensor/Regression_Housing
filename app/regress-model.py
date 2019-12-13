@@ -33,38 +33,39 @@ df['Date'] = df.Date.apply(to_year)
 df = df.astype({'Date': 'int'})
 
 dic={'Banyule City Council':1,
-'Bayside City Council':2,
-'Boroondara City Council':3,
-'Brimbank City Council':4,
-'Cardinia Shire Council':5,
-'Casey City Council':6,
-'Darebin City Council':7,
-'Frankston City Council':8,
-'Glen Eira City Council':9,
-'Greater Dandenong City Council':10,
-'Hobsons Bay City Council':11,
-'Hume City Council':12,
-'Kingston City Council':13,
-'Knox City Council':14,
-'Macedon Ranges Shire Council':15,
-'Manningham City Council':16,
-'Maribyrnong City Council':17,
-'Maroondah City Council':18,
-'Melbourne City Council':19,
-'Melton City Council':20,
-'Mitchell Shire Council':21,
-'Monash City Council':22,
-'Moonee Valley City Council':23,
-'Moorabool Shire Council':24,
-'Moreland City Council':25,
-'Nillumbik Shire Council':26,
-'Port Phillip City Council':27,
-'Stonnington City Council':28,
-'Whitehorse City Council':29,
-'Whittlesea City Council':30,
-'Wyndham City Council':31,
-'Yarra City Council':32,
-'Yarra Ranges Shire Council':33 }
+    'Bayside City Council':2,
+    'Boroondara City Council':3,
+    'Brimbank City Council':4,
+    'Cardinia Shire Council':5,
+    'Casey City Council':6,
+    'Darebin City Council':7,
+    'Frankston City Council':8,
+    'Glen Eira City Council':9,
+    'Greater Dandenong City Council':10,
+    'Hobsons Bay City Council':11,
+    'Hume City Council':12,
+    'Kingston City Council':13,
+    'Knox City Council':14,
+    'Macedon Ranges Shire Council':15,
+    'Manningham City Council':16,
+    'Maribyrnong City Council':17,
+    'Maroondah City Council':18,
+    'Melbourne City Council':19,
+    'Melton City Council':20,
+    'Mitchell Shire Council':21,
+    'Monash City Council':22,
+    'Moonee Valley City Council':23,
+    'Moorabool Shire Council':24,
+    'Moreland City Council':25,
+    'Nillumbik Shire Council':26,
+    'Port Phillip City Council':27,
+    'Stonnington City Council':28,
+    'Whitehorse City Council':29,
+    'Whittlesea City Council':30,
+    'Wyndham City Council':31,
+    'Yarra City Council':32,
+    'Yarra Ranges Shire Council':33 
+}
 df['CouncilArea'] = df.CouncilArea.map(dic)
 
 type_dummies = pd.get_dummies(df[['Type']])
@@ -88,9 +89,9 @@ regression.fit(X_train.values, y_train.values)
 # model = LinearRegression()
 # model.fit(X_poly, y_train)
 
-predict_test = model.predict(X_test)
-result = r2_score(y_test, predict_test)
-print("Accuracy: %.2f%%" % (result*100.0))
+# predict_test = model.predict(X_test)
+# result = r2_score(y_test, predict_test)
+# print("Accuracy: %.2f%%" % (result*100.0))
 
 # Export model
 # pickle.dump(model, open('model.pkl','wb'))

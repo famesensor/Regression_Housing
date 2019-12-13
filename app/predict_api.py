@@ -53,7 +53,6 @@ def preparation(data) :
         'Yarra Ranges Shire':33
     }
     for k,v in df_con.items() :
-        print(v)
         if str(data[7]) == k :
             data[7] = v
             break
