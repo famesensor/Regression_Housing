@@ -80,8 +80,8 @@ y_train = train.Price
 X_test = test.loc[:, df.columns != 'Price']
 y_test = test.Price
 
-regression = LinearRegression()
-regression.fit(X_train.values, y_train.values)
+model = LinearRegression()
+model.fit(X_train.values, y_train.values)
 
 # poly_reg = PolynomialFeatures(degree=2)
 # X_poly = poly_reg.fit_transform(X_train)
