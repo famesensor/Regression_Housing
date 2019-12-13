@@ -9,7 +9,7 @@ model = pickle.load(open("app/static/models/model.pkl", "rb"))
 
 @app.route("/", methods=["GET"])
 def index() :
-    query_db = Data.query.order_by(Data.id.desc()).limit(10)
+    query_db = Data.query.order_by(Data.id.desc()).limit(6)
     # for q in query_db :
     #     print(q.room)
     return render_template("index.html", query = query_db)
@@ -37,14 +37,14 @@ def predict() :
         df_user.append(int(predict_p))
         df_user = changedata(df_user)
         # print(df_user)
-        # data_enter = Data(detail = df_user)
-        # try : 
-        #     db.session.add(data_enter)
-        #     db.session.commit()        
-        #     db.session.close()
-        #     print("Success")
-        # except:
-        #     db.session.rollback()
+        data_enter = Data(detail = df_user)
+        try : 
+            db.session.add(data_enter)
+            db.session.commit()        
+            db.session.close()
+            print("Success")
+        except:
+            db.session.rollback()
     # query_db = Data.query.order_by(Data.id.desc()).limit(10)
 
     # return jsonify({'price' : predict_p})

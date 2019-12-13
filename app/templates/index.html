@@ -1,336 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Price</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="static/css/styleAI.css">
-    <script type="text/javascript" src="static/js/script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
-    <link rel="shortcut icon" href="static/img/icons8-location-64.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Melbourne Housing Prices</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/styleAI.css">
+  <script type="text/javascript" src="static/js/script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+  <link rel="shortcut icon" href="static/img/icons8-location-64.png" />
 </head>
 <body>
+  <div class="container contact-form">
+
+    <div class="contact-image">
+      <!-- <img src="https://imgur.com/uF0ffyT" alt="rocket_contact" /> -->
+      <img src="https://i.ibb.co/1Zc88y8/cabin-2-dribbble-alex-pasquarella.png" alt="cabin-2-dribbble-alex-pasquarella">
+    </div>
+
     <div class="container">
-        <h2>Predict something</h2>
+      <form class="needs-validation" action="/predict" method="POST" novalidate>
+        <h3>Melbourne Housing Prices</h3>
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Type of place</label>
+          <select name="type" class="custom-select form-control" required>
+            <option value="">Select Type</option>
+            <option value="h">House</option>
+            <option value="t">Townhouse</option>
+            <option value="u">Unit</option>
+          </select>
+          <div class="invalid-feedback">Please select Type</div>
+        </div>
+
+        <!-- ห้อง -->
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Room</label>
+          <input type="number" min="0" class="form-control" name="room" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+        <!-- ห้องนอน -->
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Bedroom</label>
+          <input type="number" min="0" class="form-control" name="bedroom" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+        <!-- ห้องน้ำ -->
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel" class="">Bathroom</label>
+          <input type="number" min="0" class="form-control" name="bathroom" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+        <!-- ParkingLots -->
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Parking Lots</label>
+          <input type="number" min="0" class="form-control" name="parkinglots" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+        <!-- BuildingArea -->
+        <div class="col-md-6 offset-md-3 mb-3">
+          <label for="colFormLabel">Building Area (sq m)</label>
+          <input type="number" min="0" step="any" class="form-control" name="buildingarea" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+        <!-- อายุปีที่ขาย -->
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Age (years)</label>
+          <input type="number" min="0" class="form-control" name="age" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+        <!-- ระยะห่างกับศูนย์การค้า -->
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Distance from CBD (km)</label>
+          <input type="number" min="0" class="form-control" name="distance" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Region</label>
+          <select name="region" class="region custom-select form-control " required>
+            <option value="">Select Region</option>
+          </select>
+          <div class="invalid-feedback">Please select Region</div>
+        </div>
+
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Council Area</label>
+          <div class="option">
+
+            <select class="Northern_Metropolitan custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <select class="Northern_Victoria custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <select class="Eastern_Metropolitan custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <select class="Eastern_Victoria custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <select class="South_Eastern_Metropolitan custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <select class="Southern_Metropolitan custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <select class="Western_Metropolitan custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <select class="Western_Victoria custom-select form-control">
+              <option value="">Select Council Area</option>
+            </select>
+
+            <div class="invalid-feedback">Please select Council Area</div>
+          </div>
+
+        </div>
+
+        <!-- <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Year to pricing</label>
+          <select name="date" class="custom-select form-control" required>
+            <option value=""></option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+          <div class="invalid-feedback">กรุณาเลือกปีที่ขาย</div>
+        </div> -->
+
+        <div class="col-md-6 offset-md-3 mb-4">
+          <label for="colFormLabel">Year to pricing</label>
+          <input type="number" min="1" class="form-control" name="date" required>
+          <div class="invalid-feedback">Please insert number</div>
+        </div>
+
+          <button type="submit" class="btn btn-primary btnContactSubmit mt-4">Submit</button>
+          <button type="reset" value="Reset" class="btn btn-danger btnContact mt-4">Clear</button>
+
+      </form>
     </div>
 
-    <div class="container ">  
-        <form class="needs-validation " action="/predict" method="POST" novalidate>
-                <div class="col-md-5 mb-3">
-                    <label for="colFormLabel">Type of place</label>
-                      <select name="type" class="custom-select" required>
-                        <option value="">เลือกประเภทที่ดิน</option>
-                        <option value="h">House</option>
-                        <option value="t">Townhouse</option>
-                        <option value="u">Unit</option>
-                    </select>
-                    <div class="invalid-feedback">กรุณาเลือกประเภทที่ดิน</div>
-                </div>              
-                <!-- ห้อง -->
-                <div class="col-md-5 mb-3">
-                    <label for="colFormLabel">Room</label>
-                    <input type="number" min="0" class="form-control" name="room" placeholder="จำนวนห้องทั้งหมด" required>
-                    <div class="invalid-feedback">กรุณาใส่จำนวนห้อง</div>
-                </div>
-                <!-- ห้องนอน -->
-                <div class="col-md-5 mb-3">
-                    <label for="colFormLabel">Bedroom</label>
-                    <input type="number" min="0" class="form-control" name="bedroom" placeholder="จำนวนห้องนอน" required>
-                    <div class="invalid-feedback">กรุณาใส่จำนวนห้องนอน</div>
-                </div>
-                <!-- ห้องน้ำ -->
-                <div class="col-md-5 mb-3">
-                  <label for="colFormLabel" class="">Bathroom</label>
-                  <input type="number" min="0" class="form-control" name="bathroom" placeholder="จำนวนห้องน้ำ" required>
-                  <div class="invalid-feedback">กรุณาใส่จำนวนห้องน้ำ</div>
-                </div>
-                <!-- ParkingLots -->
-                <div class="col-md-5 mb-3">
-                  <label for="colFormLabel">Parking Lots</label>
-                    <input type="number" min="0" class="form-control" name="parkinglots" placeholder="จำนวนจุดที่จอดรถ" required>
-                    <div class="invalid-feedback">กรุณาใส่จำนวนจุดจอดรถ</div>
-                </div>  
-                <!-- BuildingArea -->
-                <div class="col-md-5 mb-3">
-                  <label for="colFormLabel">Building Area</label>
-                    <input type="number" min="0" step="any" class="form-control" name="buildingarea" placeholder="พื้นที่ของอาคาร(sq m)" required>
-                    <div class="invalid-feedback">กรุณาใส่พื้นที่ของอาคาร</div>
-                </div> 
-                <!-- อายุปีที่ขาย -->
-                <div class="col-md-5 mb-3">
-                    <label for="colFormLabel">Age</label>
-                      <input type="number" min="0" class="form-control" name="age" placeholder="อายุบ้าน(ปี)" required>
-                    <div class="invalid-feedback">กรุณาใส่อายุบ้าน</div>
-                </div> 
-                <!-- ระยะห่างกับศูนย์การค้า -->
-                <div class="col-md-5 mb-3">
-                    <label for="colFormLabel">Distance</label>
-                    <input type="number" min="0" step="0.01" class="form-control fixed" decimals="2" name="distance" placeholder="ระยะห่างจากศูนย์กลางการค้า(km)" required>
-                    <div class="invalid-feedback">กรุณาใส่ระยะทาง</div>
-                </div> 
-                <!-- Region -->
-                <!-- <div class="col-md-5 mb-3">
-                    <label for="colFormLabel">Region</label>
-                    <select name="region" class="custom-select" required>
-                        <option value="">เลือกภูมิภาคที่ตั้ง</option>
-                        <option value="northern">Northern Metropolitan</option>
-                        <option value="northern-victoria">Northern Victoria</option>
-                        <option value="south-eastern">South Eastern Metropolitan</option>
-                        <option value="southern">Southern Metropolitan</option>
-                        <option value="western">Western Metropolitan</option>
-                        <option value="western-victoria">Western Victoria</option>
-                        <option value="eastern">Eastern Metropolitan</option>
-                        <option value="eastern-victoria">Eastern Victoria</option>
-                    </select>
-                    <div class="invalid-feedback">กรุณาเลือกภูมิภาคที่ตั้ง</div>
-                </div> -->
-
-                <div class="col-md-5 mb-3">
-                  <label for="colFormLabel">Region</label>
-                  <select name="region" class="region custom-select" required>
-                    <option value="">เลือกภูมิภาคที่ตั้ง</option>
-                  </select>
-                  <div class="invalid-feedback">กรุณาเลือกภูมิภาคที่ตั้ง</div>
-                </div>
+  </div>
 
 
-                <div class="col-md-5 mb-3">
-                  <label for="colFormLabel">Council Area</label>
-                  <div class="option">
-                    <select class="Northern_Metropolitan custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="1">Banyule City</option>
-                      <option value="7">Darebin City</option>
-                      <option value="12">Hume City</option>
-                      <option value="19">Melbourne City</option>
-                      <option value="25">Moreland City</option>
-                      <option value="30">Whittlesea City</option>
-                      <option value="32">Yarra City</option> -->
-                    </select>
-                    <select class="Northern_Victoria custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="15">Macedon Ranges Shire</option>
-                      <option value="20">Melton City</option>
-                      <option value="21">Mitchell Shire</option>
-                      <option value="26">Nillumbik Shire</option>
-                      <option value="30">Whittlesea City</option>
-                      <option value="33">Yarra Ranges Shire</option> -->
-                    </select>
-                    <select class="Eastern_Metropolitan custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="1">Banyule City</option>
-                      <option value="3">Boroondara City</option>
-                      <option value="14">Knox City</option>
-                      <option value="16">Manningham City</option>
-                      <option value="18">Maroondah City</option>
-                      <option value="22">Monash City</option>
-                      <option value="26">Nillumbik Shire</option>
-                      <option value="29">Whitehorse City</option> -->
-                    </select>
-                    <select class="Eastern_Victoria custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="5">Cardinia Shire</option>
-                      <option value="6">Casey City</option>
-                      <option value="8">Frankston City</option>
-                      <option value="16">Manningham City</option>
-                      <option value="33">Yarra Ranges Shire</option> -->
-                    </select>
-                    <select class="South_Eastern_Metropolitan custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="6">Casey City</option>
-                      <option value="8">Frankston City</option>
-                      <option value="10">Greater Dandenong City</option>
-                      <option value="13">Kingston City</option>
-                      <option value="14">Knox City</option>
-                      <option value="22">Monash City</option> -->
-                    </select>
-                    <select class="Southern_Metropolitan custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="2">Bayside City</option>
-                      <option value="3">Boroondara City</option>
-                      <option value="9">Glen Eira City</option>
-                      <option value="13">Kingston City</option>
-                      <option value="19">Melbourne City</option>
-                      <option value="22">Monash City</option>
-                      <option value="27">Port Phillip City</option>
-                      <option value="28">Stonnington City</option> -->
-                    </select>
-                    <select class="Western_Metropolitan custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="4">Brimbank City</option>
-                      <option value="11">Hobsons Bay City</option>
-                      <option value="12">Hume City</option>
-                      <option value="17">Maribyrnong City</option>
-                      <option value="20">Melton City</option>
-                      <option value="23">Moonee Valley City</option>
-                      <option value="25">Moreland City</option>
-                      <option value="31">Wyndham City</option> -->
-                    </select>
-                    <select class="Western_Victoria custom-select" >
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <!-- <option value="20">Melton City</option>
-                      <option value="24">Moorabool Shire</option> -->
-                    </select>
-                     <div  class="invalid-feedback">กรุณาเลือกเขตที่ตั้ง</div>
-                  </div>
-
-               </div>
-
-
-                <!-- Council -->
-               <!--  <div class="col-md-5 mb-3">
-                  <label for="colFormLabel">Council Area</label>
-                    <select name="councilarea" class="custom-select" required>
-                      <option value="">เลือกเขตที่ตั้ง</option>
-                      <option value="1">Banyule City</option>
-                      <option value="2">Bayside City</option>
-                      <option value="3">Boroondara City</option>
-                      <option value="4">Brimbank City</option>
-                      <option value="5">Cardinia Shire</option>
-                      <option value="6">Casey City</option>
-                      <option value="7">Darebin City</option>
-                      <option value="8">Frankston City</option>
-                      <option value="9">Glen Eira City</option>
-                      <option value="10">Greater Dandenong City</option>
-                      <option value="11">Hobsons Bay City</option>
-                      <option value="12">Hume City</option>
-                      <option value="13">Kingston City</option>
-                      <option value="14">Knox City</option>
-                      <option value="15">Macedon Ranges Shire</option>
-                      <option value="16">Manningham City</option>
-                      <option value="17">Maribyrnong City</option>
-                      <option value="18">Maroondah City</option>
-                      <option value="19">Melbourne City</option>
-                      <option value="20">Melton City</option>
-                      <option value="21">Mitchell Shire</option>
-                      <option value="22">Monash City</option>
-                      <option value="23">Moonee Valley City</option>
-                      <option value="24">Moorabool Shire</option>
-                      <option value="25">Moreland City</option>
-                      <option value="26">Nillumbik Shire</option>
-                      <option value="27">Port Phillip City</option>
-                      <option value="28">Stonnington City</option>
-                      <option value="29">Whitehorse City</option>
-                      <option value="30">Whittlesea City</option>
-                      <option value="31">Wyndham City</option>
-                      <option value="32">Yarra City</option>
-                      <option value="33">Yarra Ranges Shire</option>
-                  </select>
-                  <div class="invalid-feedback">กรุณาเลือกเขตที่ตั้ง</div> 
-                </div> -->          
-              <!-- Dateปีที่ขาย -->
-              <div class="col-md-5 mb-3">
-                  <label for="colFormLabel">Date</label>
-                  <select name="date" class="custom-select" required>
-                      <option value="">ปีที่ขาย</option>
-                      <option value="2016">2016</option>
-                      <option value="2017">2017</option>
-                      <option value="2018">2018</option>
-                      <option value="2019">2019</option>
-                      <option value="2020">2020</option>
-                      <option value="2021">2021</option>
-                      <option value="2022">2022</option>
-                      <option value="2023">2023</option>
-                      <option value="2024">2024</option>
-                      <option value="2025">2025</option>
-                  </select>
-                  <div class="invalid-feedback">กรุณาเลือกปีที่ขาย</div>
-              </div>
-            <!-- </div> -->
-            <div class="container mt-3 btn btncenter">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" value="Reset"  class="btn btn-danger">Clear</button>
-            </div>
-
-        </form>
-    
-
-              <!-- <select class="region"></select>
-              <div class="option">
-                <select class="Northern_Metropolitan" ></select>
-                <select class="Northern_Victoria"></select>
-                <select class="Eastern_Metropolitan"></select>
-                <select class="Eastern_Victoria"></select>
-                <select class="South_Eastern_Metropolitan"></select>
-                <select class="Southern_Metropolitan"></select>
-                <select class="Western_Metropolitan"></select>
-                <select class="Western_Victoria"></select>
-              </div> -->
-
+  <div class="container contact-form1">
+    <div class="pt-4 pb-3">
+      <h3>Predicted History</h3>
     </div>
-    {%for q in query%}
-      <p>{{q.room}},{{q.bedroom}},{{q.bathroom}},{{q.buildarea}},{{q.carspots}},{{q.type_p}},{{q.distance}},{{q.region}},{{q.councilarea}},{{q.age}},{{q.date}},{{q.price_predict}}</p>
-    {%endfor%}
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Price</th>
+            <th scope="col">Type</th>
+            <th scope="col">Year</th>
+            <th scope="col">Rooms</th>
+            <th scope="col">Bedroom</th>
+            <th scope="col">Bathroom</th>
+            <th scope="col">ParkingLot</th>
+            <th scope="col">BulidingArea</th>
+            <th scope="col">Age</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Region</th>
+            <th scope="col">Council</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for q in query%}
+          <tr>
+            <td>
+              {{q.price_predict}}
+            </td>
+            <td>
+              {{q.type_p}}
+            </td>
+            <td>
+              {{q.date}}
+            </td>
+            <td>
+              {{q.room}}
+            </td>
+            <td>
+              {{q.bedroom}}
+            </td>
+            <td>
+              {{q.bathroom}}
+            </td>
+            <td>
+              {{q.carspots}}
+            </td>
+            <td>
+              {{q.buildarea}}
+            </td>
+            <td>
+              {{q.age}}
+            </td>
+            <td>
+              {{q.distance}}
+            </td>
+            <td>
+              {{q.region}}
+            </td>
+            <td>
+              {{q.councilarea}}
+            </td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
 <script type="text/javascript">
   $(function () {
-   
+
     'use strict';
-    
+
     var CountSelect = $('.region'),
-    
-        myRegion = ['Northern_Metropolitan', 'Northern_Victoria', 'Eastern_Metropolitan', 'Eastern_Victoria', 'South_Eastern_Metropolitan', 'Southern_Metropolitan', 'Western_Metropolitan', 'Western_Victoria'],
-        
-        Northern_Metropolitan = ['Banyule City', 'Darebin City', 'Hume City', 'Melbourne City', 'Moreland City', 'Whittlesea City', 'Yarra City'],
-        
-        Northern_Victoria = ['Macedon Ranges Shire', 'Melton City', 'Mitchell Shire', 'Nillumbik Shire', 'Whittlesea City', 'Yarra Ranges Shire'],
-        
-        Eastern_Metropolitan = ['Banyule City', 'Boroondara City', 'Knox City', 'Manningham City', 'Maroondah City', 'Monash City', 'Nillumbik Shire', 'Whitehorse City'],
-        
-        Eastern_Victoria = ['Cardinia Shire', 'Casey City', 'Frankston City', 'Manningham City', 'Yarra Ranges Shire'],
 
-        South_Eastern_Metropolitan = ['Casey City', 'Frankston City', 'Greater Dandenong City', 'Kingston City', 'Knox City', 'Monash City'],
+      myRegion = ['Northern_Metropolitan', 'Northern_Victoria', 'Eastern_Metropolitan', 'Eastern_Victoria', 'South_Eastern_Metropolitan', 'Southern_Metropolitan', 'Western_Metropolitan', 'Western_Victoria'],
 
-        Southern_Metropolitan = ['Bayside City', 'Boroondara City', 'Glen Eira City', 'Kingston City', 'Melbourne City', 'Monash City', 'Port Phillip City', 'Stonnington City'],
+      Northern_Metropolitan = ['Banyule City', 'Darebin City', 'Hume City', 'Melbourne City', 'Moreland City', 'Whittlesea City', 'Yarra City'],
 
-        Western_Metropolitan = ['Brimbank City', 'Hobsons Bay City', 'Hume City', 'Maribyrnong City', 'Melton City', 'Moonee Valley City', 'Moreland City', 'Wyndham City'],
+      Northern_Victoria = ['Macedon Ranges Shire', 'Melton City', 'Mitchell Shire', 'Nillumbik Shire', 'Whittlesea City', 'Yarra Ranges Shire'],
 
-        Western_Victoria = ['Melton City', 'Moorabool Shire'];
-        
+      Eastern_Metropolitan = ['Banyule City', 'Boroondara City', 'Knox City', 'Manningham City', 'Maroondah City', 'Monash City', 'Nillumbik Shire', 'Whitehorse City'],
+
+      Eastern_Victoria = ['Cardinia Shire', 'Casey City', 'Frankston City', 'Manningham City', 'Yarra Ranges Shire'],
+
+      South_Eastern_Metropolitan = ['Casey City', 'Frankston City', 'Greater Dandenong City', 'Kingston City', 'Knox City', 'Monash City'],
+
+      Southern_Metropolitan = ['Bayside City', 'Boroondara City', 'Glen Eira City', 'Kingston City', 'Melbourne City', 'Monash City', 'Port Phillip City', 'Stonnington City'],
+
+      Western_Metropolitan = ['Brimbank City', 'Hobsons Bay City', 'Hume City', 'Maribyrnong City', 'Melton City', 'Moonee Valley City', 'Moreland City', 'Wyndham City'],
+
+      Western_Victoria = ['Melton City', 'Moorabool Shire'];
+
     // Function Create Option    
-    
-    function CreateOption(valriable, elementToAppend) {
-        
-        var i;
-        
-        for (i = 0; i < valriable.length; i += 1) {
 
-            var temp_value, temp_text;
-        
-            $('<option>', {
-              value: valriable[i]
-                .replace('_Metropolitan','')
-                .replace('_Victoria','-victoria')
-                .replace('_','-')
-                .replace('Western','western')
-                .replace('South','south')
-                .replace('Eastern','eastern')
-                .replace('Northern','northern'),
-              text: valriable[i].replace(/_/g, ' '), 
-              id: valriable[i]})
-                .appendTo(elementToAppend);
-        }
+    function CreateOption(valriable, elementToAppend) {
+
+      var i;
+
+      for (i = 0; i < valriable.length; i += 1) {
+
+        var temp_value, temp_text;
+
+        $('<option>', {
+          value: valriable[i]
+            .replace('_Metropolitan', '')
+            .replace('_Victoria', '-victoria')
+            .replace('_', '-')
+            .replace('Western', 'western')
+            .replace('South', 'south')
+            .replace('Eastern', 'eastern')
+            .replace('Northern', 'northern'),
+          text: valriable[i].replace(/_/g, ' '),
+          id: valriable[i]
+        })
+          .appendTo(elementToAppend);
+      }
     }
-    
-    
+
+
     CreateOption(myRegion, $('.region'));
-    
+
     CreateOption(Northern_Metropolitan, $('.Northern_Metropolitan'));
-    
+
     CreateOption(Northern_Victoria, $('.Northern_Victoria'));
-    
+
     CreateOption(Eastern_Metropolitan, $('.Eastern_Metropolitan'));
-    
+
     CreateOption(Eastern_Victoria, $('.Eastern_Victoria'));
 
     CreateOption(South_Eastern_Metropolitan, $('.South_Eastern_Metropolitan'));
@@ -340,35 +318,35 @@
     CreateOption(Western_Metropolitan, $('.Western_Metropolitan'));
 
     CreateOption(Western_Victoria, $('.Western_Victoria'));
-    
+
     // Hide All Select
     $('.option select').hide();
-    
+
     // Show First Selected
     $('.Northern_Metropolitan').show().css('display', 'inline-block');
-    
+
     // Show List Option City Whene user Chosse Countries
-    
+
     CountSelect.on('change', function () {
-        
-        // get Id option 
-        var myId = $(this).find(':selected').attr('id');
-        // var temp = '.' + myId;
-        console.log($(this).val());
 
-        // $('.option select').toggleClass(myId);
+      // get Id option 
+      var myId = $(this).find(':selected').attr('id');
+      // var temp = '.' + myId;
+      console.log($(this).val());
 
-        // Show Select Has class = Id And Hide Siblings
-        // $('.option select').show('.' + myId).fadeIn(400).siblings('select').prop('selectedIndex', 0).hide();
-        $('.option select')
+      // $('.option select').toggleClass(myId);
+
+      // Show Select Has class = Id And Hide Siblings
+      // $('.option select').show('.' + myId).fadeIn(400).siblings('select').prop('selectedIndex', 0).hide();
+      $('.option select')
         .filter('.' + myId)
-        .attr('name','councilarea')
+        .attr('name', 'councilarea')
         .fadeIn(400)
         .siblings('select')
         .removeAttr('name')
         .prop('selectedIndex', 0)
         .hide();
     });
-    
-});
+
+  });
 </script>

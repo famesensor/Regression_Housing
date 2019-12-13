@@ -16,6 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
     <link rel="shortcut icon" href="static/img/icons8-location-64.png" />
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -100,6 +101,14 @@
             </div>
         </div>
     </div>
+
+        <button class="btn btn-danger btnBack mt-3 mb-4" onclick="goBack()">Back</button>
+
 </body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 </html>

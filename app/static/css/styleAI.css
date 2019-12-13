@@ -1,13 +1,121 @@
-body{
-	background-color: #e0e0d1;
-	display: block;
-	font-family: 'Open Sans', sans-serif;
-}
+body {
+	background: -webkit-linear-gradient(bottom, #2f473b, #60664a);
+	font: 14px "Open Sans", sans-serif;
+	text-align: center;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+  }
+
+  .contact-form {
+    background: #fff;
+    margin-top: 10%;
+    margin-bottom: 3%;
+    width: 75%;
+    border-radius: 1rem;
+  }
+
+  .contact-form1 {
+    background: #fff;
+    margin-bottom: 5%;
+    width: 97%;
+    border-radius: 1rem;
+  }
+
+  .contact-form1 h3 {
+    text-align: center;
+    color: #60664a;
+  }
+
+  .contact-form .form-control {
+    border-radius: 1rem;
+  }
+
+  .contact-image {
+    text-align: center;
+  }
+
+  .contact-image img {
+    border-radius: 6rem;
+    width: 31%;
+    margin-top: -12%;
+    /* transform: rotate(29deg); */
+  }
+
+  .contact-form form {
+    padding: 10%;
+  }
+
+  .contact-form form .row {
+    margin-bottom: -7%;
+  }
+
+  .contact-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #2f473b;
+  }
+
+  .contact-form .btnContact {
+    width: 12%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #c25347;
+    font-weight: 200;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .btnBack {
+    width: 10%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.0%;
+    background: #c25347;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .btnContactSubmit {
+    width: 40%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #ecb860;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btnContactSubmit:hover{
+    background-color: #3e5947;
+  }
+
+  .contact-form .btnContact:hover{
+    background: #94343a;
+  }
+
+  .btnBack:hover{
+    background: #94343a;
+  }
 
 .form label{
 	text-align: left;
+}
 
-}@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
         .form label {
           text-align: left; } }
 
@@ -27,11 +135,11 @@ body{
 	padding: 0px;
 }
 
-body {
+/* body {
 	background: #ecf1f5;
 	font: 14px "Open Sans", sans-serif;
 	text-align: center;
-}
+} */
 
 .tile {
 	width: 100%;
