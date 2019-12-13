@@ -45,23 +45,10 @@ def predict() :
         #     print("Success")
         # except:
         #     db.session.rollback()
-    query_db = Data.query.order_by(Data.id.desc()).limit(10)
+    # query_db = Data.query.order_by(Data.id.desc()).limit(10)
 
     # return jsonify({'price' : predict_p})
-    return render_template("predict.html", predict = df_user, query = query_db)
-
-# @app.route('/process', methods=['POST'])
-# def process():
-
-# 	email = request.form['room']
-# 	name = request.form['date']
-
-# 	if name and email:
-# 		newName = name[::-1]
-
-# 		return jsonify({'name' : newName})
-
-# 	return jsonify({'error' : 'Missing data!'})
+    return render_template("predict.html", predict = df_user)
 
 if __name__ == "__main__" :
     app.run(port="3300",debug=True)
