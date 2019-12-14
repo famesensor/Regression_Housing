@@ -51,4 +51,4 @@ def predict() :
     return render_template("predict.html", predict = df_user)
 
 if __name__ == "__main__" :
-    app.run(port="3300",debug=True)
+    app.run(debug=True)
