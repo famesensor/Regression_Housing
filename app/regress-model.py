@@ -3,8 +3,9 @@ import pickle
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_squared_error
 from sklearn.preprocessing import PolynomialFeatures
+import datetime
 
 df = pd.read_csv('Melbourne_housing_FULL.csv')
 df = df.drop(['Address', 'Postcode', 'Propertycount', 'Landsize',
@@ -26,7 +27,6 @@ df = df.astype({'Price': 'int', 'Bedroom2': 'int', 'Bathroom': 'int',
 df = df.drop_duplicates()
 df = df.reset_index(drop=True)
 
-import datetime
 def to_year(date_str):
     return datetime.datetime.strptime(date_str.strip(),'%d/%m/%Y').year
 df['Date'] = df.Date.apply(to_year)
@@ -83,15 +83,24 @@ y_test = test.Price
 
 model = LinearRegression()
 model.fit(X_train.values, y_train.values)
+predict_train = model.predict(X_train.values)
+# rmse = mean_squared_error(y_train, predict_train)
+result_train = r2_score(y_train, predict_train)
+# print("Root mean squared error: ", rmse)
+print('Intercept: \n', model.intercept_)
+print('Coefficients: \n', model.coef_)
+print("Accuracy: %.2f%%" % (result_train*100.0))
 
 # poly_reg = PolynomialFeatures(degree=2)
 # X_poly = poly_reg.fit_transform(X_train)
 # model = LinearRegression()
 # model.fit(X_poly, y_train)
 
-# predict_test = model.predict(X_test)
-# result = r2_score(y_test, predict_test)
-# print("Accuracy: %.2f%%" % (result*100.0))
+predict_test = model.predict(X_test)
+# rmse = mean_squared_error(y_test, predict_test)
+result = r2_score(y_test, predict_test)
+# print("Root mean squared error: ", rmse)
+print("Accuracy: %.2f%%" % (result*100.0))
 
 # Export model
 # pickle.dump(model, open('model.pkl','wb'))
