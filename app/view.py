@@ -4,7 +4,9 @@ from app.predict_api import predict_price, changedata
 from sklearn import linear_model
 from app.Db import Data
 import pickle
+import os
 
+port = int(os.environ.get('PORT', 5000))
 model = pickle.load(open("app/static/models/model.pkl", "rb"))
 
 @app.route("/", methods=["GET"])
@@ -51,4 +53,4 @@ def predict() :
     return render_template("predict.html", predict = df_user)
 
 if __name__ == "__main__" :
-    app.run(debug=True)
+    app.run(port=port,debug=True)
